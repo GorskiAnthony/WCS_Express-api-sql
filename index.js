@@ -4,6 +4,7 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
+const connection = require("./db/config.js");
 
 // Si la variable d'environnement PORT n'existe pas, alors prend le port 5050
 const PORT = process.env.PORT || 5050;
@@ -18,26 +19,6 @@ app.get("/", (req, res) => {
 });
 
 // GET ALL
-// Fake data (simulation de l'appel à la BDD)
-const users = [
-	{
-		id: 1,
-		name: "Anthony",
-	},
-	{
-		id: 2,
-		name: "Jean-François",
-	},
-	{
-		id: 3,
-		name: "Julien",
-	},
-	{
-		id: 4,
-		name: "Benoît",
-	},
-];
-
 app.get("/users", (req, res) => {
 	res.json(users);
 });
