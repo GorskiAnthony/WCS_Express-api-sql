@@ -51,6 +51,8 @@ app.get("/users/:id", (req, res) => {
 	 *  params: { id: '4' }
 	 *  ...
 	 * }
+	 *
+	 * http://monsite.com/users/8 avec 8 === id
 	 */
 	const id = req.params.id;
 	// const {id} = req.params;
@@ -85,8 +87,10 @@ app.post("/users", (req, res) => {
 	// Je l'ajoute à mon tableau
 	users.push(newUser);
 
+	// INSERT INTO formateur (name) VALUES ${name};
+
 	// Puis je le rend
-	res.json(users);
+	res.status(201).json(users);
 });
 
 /**
